@@ -24,9 +24,9 @@ trades <- read.csv("sampleTrades.csv",stringsAsFactors = F)
 
 library(dplyr)
 
-View(blah <- ok %>% group_by(Type,Coin) %>% summarise(vol = sum(Amount)))
+View(blah <- trades %>% group_by(Type,Coin) %>% summarise(vol = sum(Amount)))
 
-install.packages("reshape")
+# install.packages("reshape")
 library(reshape)
 
 blah2 <- cast(blah,Coin~Type,sum) %>% mutate(Balance = Buy-Sell)
